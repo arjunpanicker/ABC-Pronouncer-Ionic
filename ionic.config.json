@@ -1,0 +1,7 @@
+{
+  "name": "abc-pronouncer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
