@@ -1,15 +1,16 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { IonSlides, ToastController } from '@ionic/angular';
-import { IBoyRoutineList } from '../models/boy_routine.model';
+import { IAlphabetList } from '../models/boy_routine.model';
 import { TextToSpeechService } from '../_services/utility_Services/text-to-speech.service';
 
 @Component({
   selector: 'app-explore-container',
   templateUrl: './explore-container.component.html',
   styleUrls: ['./explore-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExploreContainerComponent implements OnChanges {
-  @Input('routineList') routineList: IBoyRoutineList;
+  @Input() alphabetList: IAlphabetList;
 
   @ViewChild('slides', {static: true}) slides: IonSlides;
 
@@ -20,7 +21,9 @@ export class ExploreContainerComponent implements OnChanges {
   ) { }
 
   public ngOnChanges(changes: SimpleChanges) {
-    if (this.routineList && this.routineList.routine && this.routineList.routine.length > 0) {
+    console.log('outside: ', this.alphabetList);
+    if (this.alphabetList && this.alphabetList.letters && this.alphabetList.letters.length > 0) {
+      console.log('inside: ', this.alphabetList);
       this.cdRef.detectChanges();
     }
   }

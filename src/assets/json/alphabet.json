@@ -1,0 +1,134 @@
+{
+    "letters": [
+        {
+            "id": 1,
+            "text": "a A",
+            "speak": "A"
+        },
+        {
+            "id": 2,
+            "text": "b B",
+            "speak": "B"
+        },
+        {
+            "id": 3,
+            "text": "c C",
+            "speak": "C"
+        },
+        {
+            "id": 4,
+            "text": "d D",
+            "speak": "D"
+        },
+        {
+            "id": 5,
+            "text": "e E",
+            "speak": "E"
+        },
+        {
+            "id": 6,
+            "text": "f F",
+            "speak": "F"
+        },
+        {
+            "id": 7,
+            "text": "g G",
+            "speak": "G"
+        },
+        {
+            "id": 8,
+            "text": "h H",
+            "speak": "H"
+        },
+        {
+            "id": 9,
+            "text": "i I",
+            "speak": "I"
+        },
+        {
+            "id": 10,
+            "text": "j J",
+            "speak": "J"
+        },
+        {
+            "id": 11,
+            "text": "k K",
+            "speak": "K"
+        },
+        {
+            "id": 12,
+            "text": "l L",
+            "speak": "L"
+        },
+        {
+            "id": 13,
+            "text": "m M",
+            "speak": "M"
+        },
+        {
+            "id": 14,
+            "text": "n N",
+            "speak": "N"
+        },
+        {
+            "id": 15,
+            "text": "o O",
+            "speak": "O"
+        },
+        {
+            "id": 16,
+            "text": "p P",
+            "speak": "P"
+        },
+        {
+            "id": 17,
+            "text": "q Q",
+            "speak": "Q"
+        },
+        {
+            "id": 18,
+            "text": "r R",
+            "speak": "R"
+        },
+        {
+            "id": 19,
+            "text": "s S",
+            "speak": "S"
+        },
+        {
+            "id": 20,
+            "text": "t T",
+            "speak": "T"
+        },
+        {
+            "id": 21,
+            "text": "u U",
+            "speak": "U"
+        },
+        {
+            "id": 22,
+            "text": "v V",
+            "speak": "V"
+        },
+        {
+            "id": 23,
+            "text": "w W",
+            "speak": "W"
+        },
+        {
+            "id": 24,
+            "text": "x X",
+            "speak": "X"
+        },
+        {
+            "id": 25,
+            "text": "y Y",
+            "speak": "Y"
+        },
+        {
+            "id": 26,
+            "text": "z Z",
+            "speak": "Z"
+        }
+    ]
+}

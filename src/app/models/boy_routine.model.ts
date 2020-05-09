@@ -1,9 +1,9 @@
-export interface IBoyRoutineList {
-    routine: Array<IBoyRoutine>;
+export interface IAlphabetList {
+    letters: Array<IAlphabet>;
 }
 
-export interface IBoyRoutine {
+export interface IAlphabet {
     id: number;
-    url: string;
     text: string;
+    speak: string;
 }

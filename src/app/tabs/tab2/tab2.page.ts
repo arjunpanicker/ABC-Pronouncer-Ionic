@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IBoyRoutineList } from '../../models/boy_routine.model';
+import { IAlphabetList } from '../../models/boy_routine.model';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +8,7 @@ import { IBoyRoutineList } from '../../models/boy_routine.model';
 })
 export class Tab2Page {
 
-  public favouriteRoutine: IBoyRoutineList;
+  public favouriteRoutine: IAlphabetList;
 
   constructor() {}
 

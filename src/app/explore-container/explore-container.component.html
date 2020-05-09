@@ -1,11 +1,11 @@
 <div class="container">
   <ion-slides #slides>
-    <ion-slide *ngFor="let item of routineList?.routine">
-      <ion-card (click)="pronounce(item.text)">
-        <img [src]="item.url" [alt]="item.text" />
-        <div class="title-wrapper">
+    <ion-slide *ngFor="let item of alphabetList?.letters">
+      <ion-card (click)="pronounce(item.speak)">
+        <ion-card-title> {{ item.text }} </ion-card-title>
+        <!-- <div class="title-wrapper">
           <div class="card-title">{{ item.text }}</div>
-        </div>
+        </div> -->
       </ion-card>
     </ion-slide>
   </ion-slides>
