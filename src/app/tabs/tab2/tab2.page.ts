@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FavouritesService } from 'src/app/_services/favourites.service';
 import { IAlphabetList } from '../../models/boy_routine.model';
 
 @Component({
@@ -6,10 +7,19 @@ import { IAlphabetList } from '../../models/boy_routine.model';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
 
-  public favouriteRoutine: IAlphabetList;
+  public favouriteAlphabets: IAlphabetList;
 
-  constructor() {}
+  constructor(
+    private _favouritesService: FavouritesService
+  ) {}
+
+  public ngOnInit() {
+    this.favouriteAlphabets = this._favouritesService.favouriteLettersList;
+    this._favouritesService.favouriteLetters.subscribe((favList) => {
+      this.favouriteAlphabets = favList;
+    })
+  }
 
 }

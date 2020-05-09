@@ -1,31 +1,45 @@
-import { ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { IonSlides, ToastController } from '@ionic/angular';
-import { IAlphabetList } from '../models/boy_routine.model';
+import { Component, Input, ViewChild } from '@angular/core';
+import { IonSlides, ToastController, AlertController } from '@ionic/angular';
+import { IAlphabet, IAlphabetList } from '../models/boy_routine.model';
+import { FavouritesService } from '../_services/favourites.service';
 import { TextToSpeechService } from '../_services/utility_Services/text-to-speech.service';
 
 @Component({
   selector: 'app-explore-container',
   templateUrl: './explore-container.component.html',
   styleUrls: ['./explore-container.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExploreContainerComponent implements OnChanges {
+export class ExploreContainerComponent {
   @Input() alphabetList: IAlphabetList;
 
-  @ViewChild('slides', {static: true}) slides: IonSlides;
+  @ViewChild('slides', { static: true }) slides: IonSlides;
 
   constructor(
     private _ttsService: TextToSpeechService,
     private _toastController: ToastController,
-    public cdRef: ChangeDetectorRef,
+    private _favouriteService: FavouritesService,
+    private _alertController: AlertController
   ) { }
 
-  public ngOnChanges(changes: SimpleChanges) {
-    console.log('outside: ', this.alphabetList);
-    if (this.alphabetList && this.alphabetList.letters && this.alphabetList.letters.length > 0) {
-      console.log('inside: ', this.alphabetList);
-      this.cdRef.detectChanges();
-    }
+  private async showAlert(letter: IAlphabet) {
+    const alert = await this._alertController.create({
+      header: 'Confirm',
+      message: 'Remove from Favourites?',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            letter.favourite = !letter.favourite;
+            this._favouriteService.removeFromFavourites(letter);
+          }
+        },
+        {
+          text: 'No'
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   public previousSlide() {
@@ -36,6 +50,10 @@ export class ExploreContainerComponent implements OnChanges {
     this.slides.slideNext();
   }
 
+  /**
+   * This method pronounces a text
+   * @param text Text to be pronounced
+   */
   public pronounce(text: string) {
     this._ttsService.getSpeach(text).then(() => {
       console.log('done!!');
@@ -46,5 +64,18 @@ export class ExploreContainerComponent implements OnChanges {
       });
       toast.present();
     })
+  }
+
+  /**
+   * This method adds or removes a letter from favourites
+   * @param letter letter to be added or removed from favourites
+   */
+  public toggleFavourite(letter: IAlphabet) {
+    if (!letter.favourite) {
+      letter.favourite = !letter.favourite;
+      this._favouriteService.addTofavouriteLetters(letter);
+    } else {
+      this.showAlert(letter);
+    }
   }
 }

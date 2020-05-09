@@ -18,7 +18,6 @@ export class Tab1Page implements OnInit {
   public ngOnInit() {
     this._http.get('assets/json/alphabet.json').subscribe((data: IAlphabetList) => {
       this.alphabetData = data;
-      console.log(this.alphabetData)
     });
   }
 

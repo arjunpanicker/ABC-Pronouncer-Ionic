@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { TextToSpeechService } from './_services/utility_Services/text-to-speech.service';
+import { DebounceClickDirective } from './_services/directives/debounce-click.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DebounceClickDirective],
   entryComponents: [],
   imports: [
     BrowserModule,

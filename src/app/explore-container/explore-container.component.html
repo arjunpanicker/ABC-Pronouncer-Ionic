@@ -1,16 +1,18 @@
 <div class="container">
   <ion-slides #slides>
     <ion-slide *ngFor="let item of alphabetList?.letters">
-      <ion-card (click)="pronounce(item.speak)">
-        <!-- <ion-card-title> {{ item.text }} </ion-card-title> -->
-        <div class="title-wrapper">
+      <ion-card>
+        <ion-icon name="heart-outline" *ngIf="!item.favourite" class="favourite-icon" (click)="toggleFavourite(item)"></ion-icon>
+        <ion-icon name="heart" class="favourite-icon color-red" *ngIf="item.favourite" (click)="toggleFavourite(item)"></ion-icon>
+
+        <div class="title-wrapper" (click)="pronounce(item.speak)">
           <ion-card-title class="card-title">{{ item.text }}</ion-card-title>
         </div>
       </ion-card>
     </ion-slide>
   </ion-slides>
   <div class="nav-button-area">
-    <ion-icon name="arrow-back" (click)="previousSlide()"></ion-icon>
-    <ion-icon name="chevron-forward-circle-outline" (click)="nextSlide()"></ion-icon>
+    <ion-icon name="chevron-back-circle-outline" class="left-icon" (click)="previousSlide()"></ion-icon>
+    <ion-icon name="chevron-forward-circle-outline" class="right-icon" (click)="nextSlide()"></ion-icon>
   </div>
 </div>

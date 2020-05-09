@@ -6,4 +6,5 @@ export interface IAlphabet {
     id: number;
     text: string;
     speak: string;
+    favourite: boolean;
 }
