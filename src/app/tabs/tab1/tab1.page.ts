@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IBoyRoutineList } from '../models/boy_routine.model';
+import { IBoyRoutineList } from '../../models/boy_routine.model';
 
 @Component({
   selector: 'app-tab1',
