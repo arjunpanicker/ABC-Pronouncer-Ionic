@@ -7,7 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServicesModule } from './_services/services.module';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { TextToSpeechService } from './_services/utility_Services/text-to-speech.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,13 +17,13 @@ import { ServicesModule } from './_services/services.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
-    ServicesModule
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    TextToSpeech,
   ],
   bootstrap: [AppComponent]
 })
