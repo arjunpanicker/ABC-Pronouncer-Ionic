@@ -7,7 +7,7 @@
         <ion-icon name="heart" class="favourite-icon color-red" *ngIf="item.favourite" (click)="toggleFavourite(item)">
         </ion-icon>
 
-        <div class="title-wrapper" appThrottleClick (throttledClick)="pronounce(item.speak)">
+        <div class="title-wrapper" appThrottleClick (throttledClick)="pronounce(item.speak)" [ngClass]="{'no-click': !clickable}">
           <ion-card-title class="card-title">{{ item.text }}</ion-card-title>
         </div>
       </ion-card>

@@ -32,7 +32,7 @@ img {
 }
 
 .title-wrapper {
-  z-index: -1;
+  z-index: 1;
   display        : flex;
   justify-content: center;
   align-items    : center;
@@ -46,6 +46,11 @@ img {
   position : relative;
   font-size: 40px;
   color: grey;
+  z-index: 2;
+}
+
+.no-click {
+  pointer-events:none
 }
 
 .color-red {

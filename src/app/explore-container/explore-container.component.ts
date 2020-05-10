@@ -14,6 +14,8 @@ export class ExploreContainerComponent {
 
   @ViewChild('slides', { static: true }) slides: IonSlides;
 
+  public clickable = true;
+
   constructor(
     private _ttsService: TextToSpeechService,
     private _toastController: ToastController,
@@ -55,14 +57,17 @@ export class ExploreContainerComponent {
    * @param text Text to be pronounced
    */
   public pronounce(text: string) {
+    console.log('clicking');
+    this.clickable = false;
     this._ttsService.getSpeach(text).then(() => {
-      console.log('done!!');
+      this.clickable = true;
     }).catch(async (error) => {
       const toast = await this._toastController.create({
         message: 'Unable to convert into speech',
         duration: 4000
       });
       toast.present();
+      this.clickable = true;
     });
   }
 
