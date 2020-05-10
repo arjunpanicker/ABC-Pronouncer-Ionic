@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "android": "npm build && sudo rm -rf android && npx cap add android && sudo npx cap open android"
+    "android": "npm run build && sudo rm -rf android && npx cap add android && sudo npx cap open android"
   },
   "private": true,
   "dependencies": {

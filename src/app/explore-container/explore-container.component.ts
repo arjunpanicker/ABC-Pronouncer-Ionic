@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { IonSlides, ToastController, AlertController } from '@ionic/angular';
 import { IAlphabet, IAlphabetList } from '../models/alphabets.model';
 import { FavouritesService } from '../_services/favourites.service';
@@ -9,10 +9,11 @@ import { TextToSpeechService } from '../_services/utility_Services/text-to-speec
   templateUrl: './explore-container.component.html',
   styleUrls: ['./explore-container.component.scss'],
 })
-export class ExploreContainerComponent {
+export class ExploreContainerComponent implements AfterViewInit {
   @Input() alphabetList: IAlphabetList;
 
-  @ViewChild('slides', { static: true }) slides: IonSlides;
+  @ViewChildren('slides') slidesList: QueryList<IonSlides>;
+  private _slides: IonSlides;
 
   public clickable = true;
 
@@ -44,12 +45,18 @@ export class ExploreContainerComponent {
     await alert.present();
   }
 
+  public ngAfterViewInit(): void {
+    this.slidesList.changes.subscribe((comps: QueryList<IonSlides>) => {
+      this._slides = comps.first;
+    });
+  }
+
   public previousSlide() {
-    this.slides.slidePrev();
+    this._slides.slidePrev();
   }
 
   public nextSlide() {
-    this.slides.slideNext();
+    this._slides.slideNext();
   }
 
   /**
@@ -57,7 +64,6 @@ export class ExploreContainerComponent {
    * @param text Text to be pronounced
    */
   public pronounce(text: string) {
-    console.log('clicking');
     this.clickable = false;
     this._ttsService.getSpeach(text).then(() => {
       this.clickable = true;
