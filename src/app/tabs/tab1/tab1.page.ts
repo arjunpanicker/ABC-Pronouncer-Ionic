@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IAlphabetList } from '../../models/boy_routine.model';
+import { IAlphabetList } from '../../models/alphabets.model';
 
 @Component({
   selector: 'app-tab1',

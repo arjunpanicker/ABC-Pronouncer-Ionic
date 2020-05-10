@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavouritesService } from 'src/app/_services/favourites.service';
-import { IAlphabetList } from '../../models/boy_routine.model';
+import { IAlphabetList } from '../../models/alphabets.model';
 
 @Component({
   selector: 'app-tab2',

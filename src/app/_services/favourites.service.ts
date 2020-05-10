@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IAlphabet, IAlphabetList } from '../models/boy_routine.model';
+import { IAlphabet, IAlphabetList } from '../models/alphabets.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavouritesService {
 
-  public favouriteLettersList: IAlphabetList;
+  private _favouriteLettersList: IAlphabetList;
   public favouriteLetters: Subject<IAlphabetList> = new Subject<IAlphabetList>();
 
   constructor() {
-    this.favouriteLettersList = {
+    this._favouriteLettersList = {
       letters: []
     };
+  }
+
+  public get favouriteLettersList(): IAlphabetList {
+    return this._favouriteLettersList;
   }
 
   /**
@@ -21,8 +25,8 @@ export class FavouritesService {
    * @param letter Letter object to be added
    */
   public addTofavouriteLetters(letter: IAlphabet): void {
-    this.favouriteLettersList.letters.push(letter);
-    this.favouriteLetters.next(this.favouriteLettersList);
+    this._favouriteLettersList.letters.push(letter);
+    this.favouriteLetters.next(this._favouriteLettersList);
   }
 
   /**
@@ -30,7 +34,7 @@ export class FavouritesService {
    * @param letter Letter object to be removed
    */
   public removeFromFavourites(letter: IAlphabet): void {
-    this.favouriteLettersList.letters.splice(this.favouriteLettersList.letters.indexOf(letter), 1);
-    this.favouriteLetters.next(this.favouriteLettersList);
+    this._favouriteLettersList.letters.splice(this._favouriteLettersList.letters.indexOf(letter), 1);
+    this.favouriteLetters.next(this._favouriteLettersList);
   }
 }
