@@ -19,7 +19,7 @@ export class Tab2Page implements OnInit {
     this.favouriteAlphabets = this._favouritesService.favouriteLettersList;
     this._favouritesService.favouriteLetters.subscribe((favList) => {
       this.favouriteAlphabets = favList;
-    })
+    });
   }
 
 }

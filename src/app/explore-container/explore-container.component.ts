@@ -63,7 +63,7 @@ export class ExploreContainerComponent {
         duration: 4000
       });
       toast.present();
-    })
+    });
   }
 
   /**
