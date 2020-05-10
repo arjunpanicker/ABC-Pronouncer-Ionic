@@ -68,3 +68,20 @@ ion-icon {
 .right-icon {
   margin-left: 15px;
 }
+
+.nothing-center {
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  height         : 100% !important;
+  width          : 100%;
+}
+
+.nothing-color {
+  color: gray;
+  font-size: 40px;
+}
+
+.item-center {
+  text-align: center;
+}

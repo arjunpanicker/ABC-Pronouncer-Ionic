@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container" *ngIf="alphabetList?.letters.length; else nothingContainer">
   <ion-slides #slides>
     <ion-slide *ngFor="let item of alphabetList?.letters">
       <ion-card>
-        <ion-icon name="heart-outline" *ngIf="!item.favourite" class="favourite-icon" (click)="toggleFavourite(item)"></ion-icon>
-        <ion-icon name="heart" class="favourite-icon color-red" *ngIf="item.favourite" (click)="toggleFavourite(item)"></ion-icon>
+        <ion-icon name="heart-outline" *ngIf="!item.favourite" class="favourite-icon" (click)="toggleFavourite(item)">
+        </ion-icon>
+        <ion-icon name="heart" class="favourite-icon color-red" *ngIf="item.favourite" (click)="toggleFavourite(item)">
+        </ion-icon>
 
-        <div class="title-wrapper" (click)="pronounce(item.speak)">
+        <div class="title-wrapper" appThrottleClick (throttledClick)="pronounce(item.speak)">
           <ion-card-title class="card-title">{{ item.text }}</ion-card-title>
         </div>
       </ion-card>
@@ -16,3 +18,11 @@
     <ion-icon name="chevron-forward-circle-outline" class="right-icon" (click)="nextSlide()"></ion-icon>
   </div>
 </div>
+
+<ng-template #nothingContainer>
+  <div class="container nothing-center">
+    <div class="item-center nothing-color">
+      There are no alphabets here!
+    </div>
+  </div>
+</ng-template>

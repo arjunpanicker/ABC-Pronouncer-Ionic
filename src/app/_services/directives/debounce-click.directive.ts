@@ -1,15 +1,14 @@
-import { Directive, Input, Output, HostListener, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Directive, EventEmitter, HostListener, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { throttleTime } from 'rxjs/operators';
 
 @Directive({
-  selector: '[appDebounceClick]'
+  selector: '[appThrottleClick]'
 })
-export class DebounceClickDirective implements OnInit, OnDestroy {
-  @Input() debounceTime = 500;
-
-  @Output() debounceClick = new EventEmitter();
-
+export class ThrottleClickDirective implements OnInit, OnDestroy {
+  @Output() public throttledClick = new EventEmitter();
+  
+  public throttleTime = 1300;
   private clicks = new Subject();
   private subscription: Subscription;
 
@@ -17,8 +16,8 @@ export class DebounceClickDirective implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.subscription = this.clicks.pipe(
-      debounceTime(this.debounceTime)
-    ).subscribe(e => this.debounceClick.emit(e));
+      throttleTime(this.throttleTime)
+    ).subscribe(e => this.throttledClick.emit(e));
   }
 
   public ngOnDestroy() {
