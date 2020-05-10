@@ -1,0 +1,18 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "abc-pronouncer",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {},
+  "linuxAndroidStudioPath": "/usr/local/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": false,
+      "androidSplashResourceName": "splash",
+      "splashFullScreen": true,
+      "splashImmersive": true
+    }
+  }
+}
