@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
-import { IonSlides, ToastController, AlertController } from '@ionic/angular';
+import { AfterViewInit, Component, Input, QueryList, ViewChildren } from '@angular/core';
+import { AlertController, IonSlides, ToastController } from '@ionic/angular';
 import { IAlphabet, IAlphabetList } from '../models/alphabets.model';
 import { FavouritesService } from '../_services/favourites.service';
 import { TextToSpeechService } from '../_services/utility_Services/text-to-speech.service';
