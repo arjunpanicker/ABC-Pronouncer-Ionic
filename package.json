@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "copy:res": "cp -rf ~/Downloads/ApeToolsGeneratedAssets/bundle/android/* ./android/app/src/main/res/",
-    "remove-old": "sudo rm -rf android && sudo rm -rf www && ",
+    "remove-old": "sudo rm -rf android && sudo rm -rf www",
     "gen:android": "npx cap add android",
     "android": "npm run build && sudo npx cap open android"
   },
