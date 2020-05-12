@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@capacitor/core';
+import { SplashScreen, Capacitor } from '@capacitor/core';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
@@ -20,7 +20,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      SplashScreen.hide();
+      Capacitor.Plugins.SplashScreen.hide();
     });
   }
 }
