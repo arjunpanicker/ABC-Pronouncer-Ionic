@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { IAlphabetList, IAlphabet } from '../models/alphabets.model';
-import { AudioService } from '../_services/audio.service';
+// import { AudioService } from '../_services/audio.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -17,7 +17,7 @@ export class ExploreContainerComponent implements AfterViewInit {
   public clickable = true;
 
   constructor(
-    private _audioService: AudioService
+    // private _audioService: AudioService
   ) { }
 
   public ngAfterViewInit(): void {
@@ -41,7 +41,7 @@ export class ExploreContainerComponent implements AfterViewInit {
   public pronounce(alphabetObj: IAlphabet) {
     // this.clickable = false;
 
-    this._audioService.play('1');
+    // this._audioService.play('1');
     // this._ttsService.getSpeach(text).then(() => {
     //   this.clickable = true;
     // }).catch(async (error) => {
