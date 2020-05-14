@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "abc-pronouncer",
+  "appName": "Alphabet pronouncer",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

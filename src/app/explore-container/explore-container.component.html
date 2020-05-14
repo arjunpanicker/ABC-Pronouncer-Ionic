@@ -2,12 +2,7 @@
   <ion-slides #slides>
     <ion-slide *ngFor="let item of alphabetList?.letters">
       <ion-card>
-        <ion-icon name="heart-outline" *ngIf="!item.favourite" class="favourite-icon" (click)="toggleFavourite(item)">
-        </ion-icon>
-        <ion-icon name="heart" class="favourite-icon color-red" *ngIf="item.favourite" (click)="toggleFavourite(item)">
-        </ion-icon>
-
-        <div class="title-wrapper" (click)="pronounce(item.speak)" [ngClass]="{'no-click': !clickable}">
+        <div class="title-wrapper" (click)="pronounce(item)" [ngClass]="{'no-click': !clickable}">
           <ion-card-title class="card-title">{{ item.text }}</ion-card-title>
         </div>
       </ion-card>

@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, Input, QueryList, ViewChildren } from '@angular/core';
-import { AlertController, IonSlides, ToastController } from '@ionic/angular';
-import { IAlphabet, IAlphabetList } from '../models/alphabets.model';
-import { FavouritesService } from '../_services/favourites.service';
-import { TextToSpeechService } from '../_services/utility_Services/text-to-speech.service';
+import { IonSlides } from '@ionic/angular';
+import { IAlphabetList, IAlphabet } from '../models/alphabets.model';
+import { AudioService } from '../_services/audio.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -18,32 +17,8 @@ export class ExploreContainerComponent implements AfterViewInit {
   public clickable = true;
 
   constructor(
-    private _ttsService: TextToSpeechService,
-    private _toastController: ToastController,
-    private _favouriteService: FavouritesService,
-    private _alertController: AlertController
+    private _audioService: AudioService
   ) { }
-
-  private async showAlert(letter: IAlphabet) {
-    const alert = await this._alertController.create({
-      header: 'Confirm',
-      message: 'Remove from Favourites?',
-      buttons: [
-        {
-          text: 'Yes',
-          handler: () => {
-            letter.favourite = !letter.favourite;
-            this._favouriteService.removeFromFavourites(letter);
-          }
-        },
-        {
-          text: 'No'
-        }
-      ]
-    });
-
-    await alert.present();
-  }
 
   public ngAfterViewInit(): void {
     this.slidesList.changes.subscribe((comps: QueryList<IonSlides>) => {
@@ -63,30 +38,24 @@ export class ExploreContainerComponent implements AfterViewInit {
    * This method pronounces a text
    * @param text Text to be pronounced
    */
-  public pronounce(text: string) {
-    this.clickable = false;
-    this._ttsService.getSpeach(text).then(() => {
-      this.clickable = true;
-    }).catch(async (error) => {
-      const toast = await this._toastController.create({
-        message: 'Unable to convert into speech',
-        duration: 4000
-      });
-      toast.present();
-      this.clickable = true;
-    });
+  public pronounce(alphabetObj: IAlphabet) {
+    // this.clickable = false;
+
+    this._audioService.play('1');
+    // this._ttsService.getSpeach(text).then(() => {
+    //   this.clickable = true;
+    // }).catch(async (error) => {
+    //   const toast = await this._toastController.create({
+    //     message: 'Unable to convert into speech',
+    //     duration: 4000
+    //   });
+    //   toast.present();
+    //   this.clickable = true;
+    // });
   }
 
   /**
    * This method adds or removes a letter from favourites
    * @param letter letter to be added or removed from favourites
    */
-  public toggleFavourite(letter: IAlphabet) {
-    if (!letter.favourite) {
-      letter.favourite = !letter.favourite;
-      this._favouriteService.addTofavouriteLetters(letter);
-    } else {
-      this.showAlert(letter);
-    }
-  }
 }

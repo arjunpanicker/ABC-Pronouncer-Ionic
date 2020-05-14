@@ -3,158 +3,132 @@
         {
             "id": 1,
             "text": "a A",
-            "speak": "A",
-            "favourite": false
+            "assetLoc": "assets/sounds/a.mp3"
         },
         {
             "id": 2,
             "text": "b B",
-            "speak": "B",
-            "favourite": false
+            "assetLoc": "assets/sounds/b.mp3"
         },
         {
             "id": 3,
             "text": "c C",
-            "speak": "C",
-            "favourite": false
+            "assetLoc": "assets/sounds/c.mp3"
         },
         {
             "id": 4,
             "text": "d D",
-            "speak": "D",
-            "favourite": false
+            "assetLoc": "assets/sounds/d.mp3"
         },
         {
             "id": 5,
             "text": "e E",
-            "speak": "E",
-            "favourite": false
+            "assetLoc": "assets/sounds/e.mp3"
         },
         {
             "id": 6,
             "text": "f F",
-            "speak": "F",
-            "favourite": false
+            "assetLoc": "assets/sounds/f.mp3"
         },
         {
             "id": 7,
             "text": "g G",
-            "speak": "G",
-            "favourite": false
+            "assetLoc": "assets/sounds/g.mp3"
         },
         {
             "id": 8,
             "text": "h H",
-            "speak": "H",
-            "favourite": false
+            "assetLoc": "assets/sounds/h.mp3"
         },
         {
             "id": 9,
             "text": "i I",
-            "speak": "I",
-            "favourite": false
+            "assetLoc": "assets/sounds/i.mp3"
         },
         {
             "id": 10,
             "text": "j J",
-            "speak": "J",
-            "favourite": false
+            "assetLoc": "assets/sounds/j.mp3"
         },
         {
             "id": 11,
             "text": "k K",
-            "speak": "K",
-            "favourite": false
+            "assetLoc": "assets/sounds/k.mp3"
         },
         {
             "id": 12,
             "text": "l L",
-            "speak": "L",
-            "favourite": false
+            "assetLoc": "assets/sounds/l.mp3"
         },
         {
             "id": 13,
             "text": "m M",
-            "speak": "M",
-            "favourite": false
+            "assetLoc": "assets/sounds/m.mp3"
         },
         {
             "id": 14,
             "text": "n N",
-            "speak": "N",
-            "favourite": false
+            "assetLoc": "assets/sounds/n.mp3"
         },
         {
             "id": 15,
             "text": "o O",
-            "speak": "O",
-            "favourite": false
+            "assetLoc": "assets/sounds/o.mp3"
         },
         {
             "id": 16,
             "text": "p P",
-            "speak": "P",
-            "favourite": false
+            "assetLoc": "assets/sounds/p.mp3"
         },
         {
             "id": 17,
             "text": "q Q",
-            "speak": "Q",
-            "favourite": false
+            "assetLoc": "assets/sounds/q.mp3"
         },
         {
             "id": 18,
             "text": "r R",
-            "speak": "R",
-            "favourite": false
+            "assetLoc": "assets/sounds/r.mp3"
         },
         {
             "id": 19,
             "text": "s S",
-            "speak": "S",
-            "favourite": false
+            "assetLoc": "assets/sounds/s.mp3"
         },
         {
             "id": 20,
             "text": "t T",
-            "speak": "T",
-            "favourite": false
+            "assetLoc": "assets/sounds/t.mp3"
         },
         {
             "id": 21,
             "text": "u U",
-            "speak": "U",
-            "favourite": false
+            "assetLoc": "assets/sounds/u.mp3"
         },
         {
             "id": 22,
             "text": "v V",
-            "speak": "V",
-            "favourite": false
+            "assetLoc": "assets/sounds/v.mp3"
         },
         {
             "id": 23,
             "text": "w W",
-            "speak": "W",
-            "favourite": false
+            "assetLoc": "assets/sounds/w.mp3"
         },
         {
             "id": 24,
             "text": "x X",
-            "speak": "X",
-            "favourite": false
+            "assetLoc": "assets/sounds/x.mp3"
         },
         {
             "id": 25,
             "text": "y Y",
-            "speak": "Y",
-            "favourite": false
+            "assetLoc": "assets/sounds/y.mp3"
         },
         {
             "id": 26,
             "text": "z Z",
-            "speak": "Z",
-            "favourite": false
+            "assetLoc": "assets/sounds/z.mp3"
         }
     ]
 }
