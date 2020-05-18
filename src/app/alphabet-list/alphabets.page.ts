@@ -20,7 +20,7 @@ export class AlphabetsPage implements OnInit {
   public ngOnInit(): void {
     this._http.get('assets/json/alphabet.json').subscribe((data: IAlphabetList) => {
       this.alphabetData = data;
-    })
+    });
   }
 
 }

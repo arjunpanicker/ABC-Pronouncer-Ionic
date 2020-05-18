@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input, QueryList, ViewChildren } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
-import { IAlphabetList, IAlphabet } from '../models/alphabets.model';
-// import { AudioService } from '../_services/audio.service';
+import { IonSlides, ToastController } from '@ionic/angular';
+import { IAlphabet, IAlphabetList } from '../models/alphabets.model';
+import { AudioService } from '../_services/audio.service';
 
 @Component({
   selector: 'app-explore-container',
@@ -17,7 +17,8 @@ export class ExploreContainerComponent implements AfterViewInit {
   public clickable = true;
 
   constructor(
-    // private _audioService: AudioService
+    private _audioService: AudioService,
+    private _toastController: ToastController
   ) { }
 
   public ngAfterViewInit(): void {
@@ -39,19 +40,20 @@ export class ExploreContainerComponent implements AfterViewInit {
    * @param text Text to be pronounced
    */
   public pronounce(alphabetObj: IAlphabet) {
-    // this.clickable = false;
+    this.clickable = false;
 
-    // this._audioService.play('1');
-    // this._ttsService.getSpeach(text).then(() => {
-    //   this.clickable = true;
-    // }).catch(async (error) => {
-    //   const toast = await this._toastController.create({
-    //     message: 'Unable to convert into speech',
-    //     duration: 4000
-    //   });
-    //   toast.present();
-    //   this.clickable = true;
-    // });
+    this._audioService.play(alphabetObj.id.toString())
+      .then((success) => {
+        this.clickable = true;
+      })
+      .catch(async (error) => {
+        const toast = await this._toastController.create({
+          message: 'Unable to convert into speech',
+          duration: 4000
+        });
+        toast.present();
+        this.clickable = true;
+      });
   }
 
   /**

@@ -5,5 +5,5 @@ export interface IAlphabetList {
 export interface IAlphabet {
     id: number;
     text: string;
-    asssetLoc: string;
+    assetLoc: string;
 }

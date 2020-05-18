@@ -10,10 +10,5 @@
     <param name="android-package" value="cordova.plugins.screenorientation.CDVOrientation"/>
   </feature>
 
-  <feature name="TTS">
-    <param name="android-package" value="com.wordsbaking.cordova.tts.TTS"/>
-    <param name="onload" value="true"/>
-  </feature>
-
   
 </widget>

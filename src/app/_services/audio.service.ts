@@ -27,15 +27,15 @@ export class AudioService {
   }
 
   /**
-   * 
+   * Preload the json file and get the urls for the audio files
    */
   private batchPreload(): Promise<any> {
     return this._http.get('assets/json/alphabet.json').toPromise()
       .then((data: IAlphabetList) => {
         data.letters.forEach((alphabet: IAlphabet) => {
-          this.preload(alphabet.id.toString(), alphabet.asssetLoc);
+          this.preload(alphabet.id.toString(), alphabet.assetLoc);
         });
-      })
+      });
   }
 
   /**
@@ -51,7 +51,7 @@ export class AudioService {
   }
 
   /**
-   * This method preloads a music file. 
+   * This method preloads a music file.
    * @param key ID of the file
    * @param asset location of the file
    */
